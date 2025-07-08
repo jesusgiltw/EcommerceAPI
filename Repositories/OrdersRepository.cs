@@ -29,7 +29,7 @@ public class OrdersRepository : IOrdersRepository
             {
                 OrderId = reader.GetString(0),
                 CustomerId = reader.GetString(1),
-                OrderDate = reader.GetDateTime(2)
+                OrderStatus = reader.GetString(2)
             });
         }
 
@@ -51,7 +51,7 @@ public class OrdersRepository : IOrdersRepository
             {
                 OrderId = reader.GetString(0),
                 CustomerId = reader.GetString(1),
-                OrderDate = reader.GetDateTime(2)
+                OrderStatus = reader.GetString(2)
             };
         }
 
