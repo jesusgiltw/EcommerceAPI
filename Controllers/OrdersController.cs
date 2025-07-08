@@ -21,4 +21,11 @@ public class OrdersController : ControllerBase
         var orders = _service.GetAllOrders();
         return Ok(orders);
     }
+    
+    [HttpGet("{id}")]
+    public ActionResult<Order> GetOrderById(string id)
+    {
+        var order = _service.GetOrderById(id);
+        return Ok(order);
+    }
 }

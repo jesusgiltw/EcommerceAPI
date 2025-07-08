@@ -36,4 +36,15 @@ public class OrdersServiceTests
         Assert.NotNull(result);
         Assert.Empty(result);
     }
+    [Fact]
+    public void GetOrderById_ShouldReturnOrder()
+    {
+        var mockRepository = new Mock<IOrdersRepository>();
+        var order = new Order { OrderId = "1", CustomerId = "123", OrderDate = DateTime.Now };
+        mockRepository.Setup(repo => repo.GetOrderById("1")).Returns(order);
+        var service = new OrdersService(mockRepository.Object);
+        var result = service.GetOrderById("1");
+        Assert.NotNull(result);
+        Assert.Equal("1", result.OrderId);
+    }
 }

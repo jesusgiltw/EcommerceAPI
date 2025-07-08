@@ -16,4 +16,8 @@ public class OrdersService
     {
         return _repository.GetAllOrders();
     }
+    public Order GetOrderById(string orderId)
+    {
+        return _repository.GetOrderById(orderId);
+    }
 }

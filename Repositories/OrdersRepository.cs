@@ -35,4 +35,26 @@ public class OrdersRepository : IOrdersRepository
 
         return orders;
     }
+     public Order GetOrderById(string orderId)
+    {
+        using var connection = _dbContext.GetConnection();
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM orders WHERE order_id = @OrderId";
+        command.Parameters.AddWithValue("@OrderId", orderId);
+
+        using var reader = command.ExecuteReader();
+        if (reader.Read())
+        {
+            return new Order
+            {
+                OrderId = reader.GetString(0),
+                CustomerId = reader.GetString(1),
+                OrderDate = reader.GetDateTime(2)
+            };
+        }
+
+        throw new Exception("Order not found");
+    }
 }
