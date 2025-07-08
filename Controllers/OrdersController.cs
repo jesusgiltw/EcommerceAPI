@@ -21,11 +21,18 @@ public class OrdersController : ControllerBase
         var orders = _service.GetAllOrders();
         return Ok(orders);
     }
-    
+
     [HttpGet("{id}")]
     public ActionResult<Order> GetOrderById(string id)
     {
         var order = _service.GetOrderById(id);
         return Ok(order);
+    }
+
+    [HttpGet("by-date")]
+    public ActionResult<List<Order>> GetOrdersByDateRange([FromBody] DateRangeRequest dateRange)
+    {
+        var orders = _service.GetOrdersBetweenPurchasedDates(dateRange.StartDate, dateRange.EndDate);
+        return Ok(orders);
     }
 }

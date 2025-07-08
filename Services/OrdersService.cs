@@ -20,4 +20,8 @@ public class OrdersService
     {
         return _repository.GetOrderById(orderId);
     }
+    public List<Order> GetOrdersBetweenPurchasedDates(DateTime startDate, DateTime endDate)
+    {
+        return _repository.GetOrdersBetweenPurchasedDates(startDate, endDate);
+    }
 }

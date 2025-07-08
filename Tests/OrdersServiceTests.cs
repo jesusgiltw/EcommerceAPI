@@ -47,4 +47,19 @@ public class OrdersServiceTests
         Assert.NotNull(result);
         Assert.Equal("1", result.OrderId);
     }
+    [Fact]
+    public void GetOrdersBetweenPurchasedDates_ShouldReturnOrders()
+    {
+        var mockRepository = new Mock<IOrdersRepository>();
+        var orders = new List<Order>
+        {
+            new Order { OrderId = "1", CustomerId = "123", OrderStatus = "Invoiced", OrderPurchasedDate = DateTime.Now.AddDays(-1) },
+            new Order { OrderId = "2", CustomerId = "456", OrderStatus = "Delivered", OrderPurchasedDate = DateTime.Now }
+        };
+        mockRepository.Setup(repo => repo.GetOrdersBetweenPurchasedDates(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(orders);
+        var service = new OrdersService(mockRepository.Object);
+        var result = service.GetOrdersBetweenPurchasedDates(DateTime.Now.AddDays(-2), DateTime.Now);
+        Assert.NotNull(result);
+        Assert.Equal(2, result.Count);
+    }
 }
