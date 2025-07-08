@@ -63,3 +63,4 @@
 /Users/jesus.gil/Trainings/EcommerceAPI/EcommerceAPI/obj/Debug/net9.0/EcommerceAPI.pdb
 /Users/jesus.gil/Trainings/EcommerceAPI/EcommerceAPI/obj/Debug/net9.0/EcommerceAPI.genruntimeconfig.cache
 /Users/jesus.gil/Trainings/EcommerceAPI/EcommerceAPI/obj/Debug/net9.0/ref/EcommerceAPI.dll
+/Users/jesus.gil/Trainings/EcommerceAPI/EcommerceAPI/obj/Debug/net9.0/EcommerceAPI.sourcelink.json
