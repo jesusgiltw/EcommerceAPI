@@ -1,18 +1,4 @@
 # Ignorar carpetas generadas automáticamente
 bin/
 obj/
-*.user
-*.suo
-*.dll
-*.exe
-*.pdb
-*.cache
-*.log
-
-# VSCode settings (opcional)
-.vscode/
-
-# Archivos temporales del sistema
-.DS_Store
-Thumbs.db
 
