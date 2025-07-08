@@ -1,0 +1,24 @@
+using EcommerceAPI.Entities;
+using EcommerceAPI.Services;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EcommerceAPI.Controllers;
+
+[ApiController]
+[Route("orders")]
+public class OrdersController : ControllerBase
+{
+    private readonly OrdersService _service;
+
+    public OrdersController(OrdersService service)
+    {
+        _service = service;
+    }
+
+    [HttpGet]
+    public ActionResult<List<Order>> GetAllOrders()
+    {
+        var orders = _service.GetAllOrders();
+        return Ok(orders);
+    }
+}

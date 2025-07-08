@@ -19,6 +19,9 @@ builder.Services.AddScoped<ProductsService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<CustomerService>();
 
+builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
+builder.Services.AddScoped<OrdersService>();
+
 // Add services to the container
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
